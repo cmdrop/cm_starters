@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * Creates nodes
+ */
+
+
+/**
+ * Implements hook_install().
+ */
+function cm_starter_pages_install() {
+  // followed example from http://drupal.stackexchange.com/questions/8039/how-to-create-nodes-using-node-save
+  
+  //BEGINNING OF NODE CREATION
+	$node = new stdClass(); // We create a new node object
+	$node->type = "page"; // Or any other content type you want
+	$node->title = "Welcome to CMDrupal!";
+	$node->language = LANGUAGE_NONE; // Or any language code if Locale module is enabled. More on this below *
+	$node->path = array('alias' => 'welcome'); // Setting a node path
+	node_object_prepare($node); // Set some default values.
+	$node->uid = 1; // Or any id you wish
+
+	// Let's add standard body field
+	$node->body[$node->language][0]['value'] = 'Congratulations on your successful installation of the Community Media Starter Kit. 
+	
+  CMDrupal is a collaborative effort to provide an open source suite of tools built upon Drupal and CiviCRM to manage the internal and external workflows of a community based media organization. That includes projects, shows, people, events, media and metadata (including playback server integration).
+
+  Follow the links on the front page of <a href="http://cmdrupal.org">CMDrupal.org</a> to find out more.';
+	$node->body[$node->language][0]['summary'] = 'Congratulations on your successful installation of the Community Media Starter Kit!';
+	$node->body[$node->language][0]['format'] = 'filtered_html'; // If field has a format, you need to define it. Here we define a default filtered_html format for a body field
+
+	$node = node_submit($node); // Prepare node for a submit
+	node_save($node); // After this call we'll get a nid	
+  //END OF NODE CREATION
+	
+  drupal_set_message(t('The example pages have been created'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cm_starter_pages_uninstall() {
+  
+  // @TODO: delete nodes that were created
+  drupal_set_message(t('The example pages have been deleted'));
+} 
+
+

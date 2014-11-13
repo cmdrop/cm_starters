@@ -1,4 +1,4 @@
-name = Starters: Basic Event Calendar
+name = Starter: Basic Event Calendar
 description = Event content type, Fullcalendar view and Taxonomy Vocab for creating events calendar with color coded events by type.
 core = 7.x
 package = Community Media Starters

@@ -1,7 +1,7 @@
-name = Community Media Starterkits: News
+name = Starter: News
 description = Adds a content type, article, for news, blog posts etc.
 core = 7.x
-package = Community Media
+package = Community Media Starters
 version = 7.x-1.0
 project = cm_starter_news
 dependencies[] = node

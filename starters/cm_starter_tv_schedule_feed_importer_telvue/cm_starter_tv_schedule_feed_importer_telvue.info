@@ -1,0 +1,10 @@
+name = Starter: TV Schedule Feed Importer - Telvue
+core = 7.x
+package = Community Media Starters
+dependencies[] = cm_airing
+dependencies[] = ctools
+dependencies[] = feeds
+dependencies[] = feeds_telvue
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = cm_starter_tv_schedule_import_telvue

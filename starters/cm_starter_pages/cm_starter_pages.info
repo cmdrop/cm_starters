@@ -1,4 +1,4 @@
-name = Community Media Starters: Pages
+name = Starter: Pages
 description = Adds a few default pages
 core = 7.x
-package = Community Media
+package = Community Media Starters

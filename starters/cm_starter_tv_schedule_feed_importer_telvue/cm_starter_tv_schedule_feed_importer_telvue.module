@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CM Starter: TV Schedule Feed Importer - Telvue feature.
+ */
+
+include_once 'cm_starter_tv_schedule_feed_importer_telvue.features.inc';

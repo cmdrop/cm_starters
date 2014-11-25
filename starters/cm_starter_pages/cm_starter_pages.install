@@ -14,12 +14,54 @@ function cm_starter_pages_install() {
   //BEGINNING OF NODE CREATION
 	$node = new stdClass(); // We create a new node object
 	$node->type = "page"; // Or any other content type you want
+	$node->title = "PLEASE Use the Documentation";
+	$node->language = LANGUAGE_NONE; // Or any language code if Locale module is enabled. More on this below *
+	$node->path = array('alias' => 'help'); // Setting a node path
+	node_object_prepare($node); // Set some default values.
+	$node->uid = 1; // Or any id you wish
+	$node->promote = 1;
+  
+	// Let's add standard body field
+	$node->body[$node->language][0]['value'] = 'The CMD team has created extensive documentation about this project.
+Documentation exists on Drupal.org for the Easy, Moderate, and Difficult Community Media Starter Kits. This documentation covers installation and configuration for CMDrupal specific modules and when necessary provides information about Drupal contributed modules that are included in the kits.
+<a href="https://drupal.org/documentation/build/community-media">Learn more about Community Media in Drupal’s documentation section</a>.';
+	$node->body[$node->language][0]['summary'] = 'Documentation exists on Drupal.org for the Easy, Moderate, and Difficult Community Media Starter Kits.';
+	$node->body[$node->language][0]['format'] = 'filtered_html'; // If field has a format, you need to define it. Here we define a default filtered_html format for a body field
+
+	$node = node_submit($node); // Prepare node for a submit
+	node_save($node); // After this call we'll get a nid	
+  //END OF NODE CREATION
+  
+  //BEGINNING OF NODE CREATION
+	$node = new stdClass(); // We create a new node object
+	$node->type = "page"; // Or any other content type you want
+	$node->title = "CMD Behind the Scenes";
+	$node->language = LANGUAGE_NONE; // Or any language code if Locale module is enabled. More on this below *
+	$node->path = array('alias' => 'behind-the-scenes'); // Setting a node path
+	node_object_prepare($node); // Set some default values.
+	$node->uid = 1; // Or any id you wish
+  $node->promote = 1;
+  
+	// Let's add standard body field
+	$node->body[$node->language][0]['value'] = 'Community media center staff from around the country, along with a small team of Drupal developers, have spent lots of time and energy over the years working to support the CMDrupal project. In Austin, Texas, staff from Amherst Media, Manhattan Neighborhood Network, and Portland Community Media recently met with A Little Help Hosting and Openflows at channelAustin to work on a variety of initiatives, including the Community Media Starter Kits. 
+<a href="https://groups.drupal.org/node/425608">Take a look at a short report about the weekend sprint in Austin.</a>';
+	$node->body[$node->language][0]['summary'] = 'Community media center staff sprint in Austin';
+	$node->body[$node->language][0]['format'] = 'filtered_html'; // If field has a format, you need to define it. Here we define a default filtered_html format for a body field
+
+	$node = node_submit($node); // Prepare node for a submit
+	node_save($node); // After this call we'll get a nid	
+  //END OF NODE CREATION
+    
+  //BEGINNING OF NODE CREATION
+	$node = new stdClass(); // We create a new node object
+	$node->type = "page"; // Or any other content type you want
 	$node->title = "Welcome to CMDrupal!";
 	$node->language = LANGUAGE_NONE; // Or any language code if Locale module is enabled. More on this below *
 	$node->path = array('alias' => 'welcome'); // Setting a node path
 	node_object_prepare($node); // Set some default values.
 	$node->uid = 1; // Or any id you wish
-
+  $node->promote = 1;
+  
 	// Let's add standard body field
 	$node->body[$node->language][0]['value'] = 'Congratulations on your successful installation of the Community Media Starter Kit. 
 	

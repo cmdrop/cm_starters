@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the Community Media Starterkits: News feature.
+ * Code for the CM Starter: News feature.
  */
 
 include_once 'cm_starter_news.features.inc';

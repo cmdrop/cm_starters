@@ -36,10 +36,11 @@ function cm_starter_news_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Body',
+    'label' => t('Body'),
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'membership_entity_join_form' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -58,7 +59,7 @@ function cm_starter_news_field_default_field_instances() {
   $field_instances['node-article-field_image'] = array(
     'bundle' => 'article',
     'deleted' => 0,
-    'description' => 'Upload an image to go with this article.',
+    'description' => t('Add an image to go with this news article'),
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -70,27 +71,25 @@ function cm_starter_news_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'picture',
         'settings' => array(
-          'colorbox' => 'fullbredd',
           'colorbox_settings' => array(
             'colorbox_caption' => 'none',
             'colorbox_caption_custom' => '',
             'colorbox_gallery' => 'none',
             'colorbox_gallery_custom' => '',
             'colorbox_group' => 'fullbredd',
-            'colorbox_multivalue_index' => NULL,
           ),
           'fallback_image_style' => '',
           'image_link' => '',
-          'picture_group' => 'fullbredd',
-          'picture_mapping' => '',
+          'picture_mapping' => 'thumbnails',
         ),
         'type' => 'picture',
         'weight' => -1,
       ),
     ),
     'entity_type' => 'node',
+    'fences_wrapper' => 'div',
     'field_name' => 'field_image',
-    'label' => 'Image',
+    'label' => t('Image'),
     'required' => 0,
     'settings' => array(
       'alt_field' => 1,
@@ -99,6 +98,7 @@ function cm_starter_news_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
+      'membership_entity_join_form' => FALSE,
       'min_resolution' => '',
       'title_field' => 0,
       'user_register_form' => FALSE,
@@ -110,20 +110,21 @@ function cm_starter_news_field_default_field_instances() {
         'allowed_schemes' => array(
           'private' => 'private',
           'public' => 'public',
+          'solidtango' => 0,
+          'youtube' => 0,
         ),
         'allowed_types' => array(
-          0 => 0,
           'audio' => 0,
-          'default' => 0,
+          'document' => 0,
           'image' => 'image',
           'video' => 0,
         ),
         'browser_plugins' => array(
-          'library' => 0,
-          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
           'media_default--media_browser_my_files' => 0,
           'media_internet' => 0,
-          'upload' => 0,
+          'upload' => 'upload',
+          'youtube' => 0,
         ),
         'progress_indicator' => 'throbber',
       ),
@@ -137,7 +138,7 @@ function cm_starter_news_field_default_field_instances() {
     'bundle' => 'article',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Enter a comma-separated list of words to describe your content.',
+    'description' => t('Enter a comma-separated list of words to describe your content.'),
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -156,9 +157,10 @@ function cm_starter_news_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_tags',
-    'label' => 'Tags',
+    'label' => t('Tags'),
     'required' => FALSE,
     'settings' => array(
+      'membership_entity_join_form' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -172,13 +174,6 @@ function cm_starter_news_field_default_field_instances() {
     ),
   );
 
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Body');
-  t('Enter a comma-separated list of words to describe your content.');
-  t('Image');
-  t('Tags');
-  t('Upload an image to go with this article.');
 
   return $field_instances;
 }

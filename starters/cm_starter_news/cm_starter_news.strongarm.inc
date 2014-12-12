@@ -90,7 +90,14 @@ function cm_starter_news_strongarm() {
           'weight' => '-5',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'disqus' => array(
+          'teaser' => array(
+            'weight' => '1002',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__article'] = $strongarm;

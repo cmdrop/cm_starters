@@ -1,4 +1,4 @@
-name = CM Starter: News
+name = Community Media Starterkits: News
 description = Adds a content type, article, for news, blog posts etc., including image styles, breakpoints and picture mappings.
 core = 7.x
 package = Community Media Starters
